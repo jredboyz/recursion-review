@@ -16,10 +16,13 @@ var getElementsByClassName = function(className) {
   //create recurring function with element parameter
   let recurFunc = function (element) {
     if (element.classList) {
-    //if className matches target
-      if (element.classList.value === className) {
-        //push to result array
-        result.push(element);
+      console.log(element.classList)
+      for(let i = 0; i < element.classList.length; i++) {
+        //if className matches target
+        if (element.classList[i] === className) {
+          //push to result array
+          result.push(element);
+        }
       }
     }
     //if element has no children
@@ -31,6 +34,7 @@ var getElementsByClassName = function(className) {
     //iterate over the element.childnodes
     for (let i = 0; i < element.childNodes.length; i++) {
       //call recurrsive function on each element
+      // console.log(i)
       recurFunc(element.childNodes[i])
     }
   }
